@@ -1,0 +1,15 @@
+{
+  "name": "Ruby Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rebornix.Ruby",             // Ruby language support
+        "castwide.solargraph",        // Ruby LSP with Solargraph for enhanced language features
+        "ms-vscode-remote.remote-containers"  // Remote containers support (if not already installed)
+      ]
+    }
+  }
+}
