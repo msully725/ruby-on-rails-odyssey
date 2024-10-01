@@ -2,7 +2,7 @@
 FROM ruby:3.2
 
 # Install dependencies
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs sudo
 
 # Set the working directory inside the container
 WORKDIR /workspace
@@ -10,12 +10,12 @@ WORKDIR /workspace
 # Install Bundler for dependency management
 RUN gem install bundler
 
-# Install Rails globally so it's always available
-RUN gem install rails
+# # Install Rails globally so it's always available
+# RUN gem install rails
 
 # Copy Gemfile and install dependencies (if you have a Gemfile)
-COPY Gemfile* /workspace/
-RUN bundle install || true
+COPY Gemfile /workspace/
+RUN bundle install
 
 # Ensure the sudoers.d directory exists, then create the vscode user
 RUN mkdir -p /etc/sudoers.d \
